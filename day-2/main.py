@@ -30,6 +30,7 @@ import os
 
 load_dotenv()
 
+
 # ==============================================================================
 # STEP 1: Configure your LLM (same as Day 1)
 # ==============================================================================
@@ -38,6 +39,9 @@ llm = LLM(
     model="openai/gpt-4o-mini",
     temperature=0.7,
 )
+
+print("BROWSERBASE_API_KEY:", os.getenv("BROWSERBASE_API_KEY")) 
+print("BROWSERBASE_PROJECT_ID:", os.getenv("BROWSERBASE_PROJECT_ID"))
 
 # ==============================================================================
 # STEP 2: Define Tools
@@ -76,9 +80,25 @@ vision_tool = VisionTool()
 # Interacts with and extracts data from web browsers
 # Requires BROWSERBASE_API_KEY and BROWSERBASE_PROJECT_ID in .env
 # Get keys at: https://www.browserbase.com
+# browserbase_tool = None
+# if os.getenv('BROWSERBASE_API_KEY') and os.getenv('BROWSERBASE_PROJECT_ID'):
+#     browserbase_tool = BrowserbaseLoadTool()
+
 browserbase_tool = None
-if os.getenv('BROWSERBASE_API_KEY') and os.getenv('BROWSERBASE_PROJECT_ID'):
-    browserbase_tool = BrowserbaseLoadTool()
+if os.getenv("BROWSERBASE_API_KEY") and os.getenv("BROWSERBASE_PROJECT_ID"):
+    try:
+        from crewai_tools import BrowserbaseLoadTool  # import here to avoid import-time checks
+        try:
+            browserbase_tool = BrowserbaseLoadTool()
+        except Exception as e:
+            # Initialization failed even though env vars are present
+            print("BrowserbaseLoadTool initialization failed:", repr(e))
+            browserbase_tool = None
+    except Exception as e:
+        # Import itself failed
+        print("Could not import BrowserbaseLoadTool:", repr(e))
+else:
+    print("Browserbase env vars not set; skipping BrowserbaseLoadTool.")
 
 # Tool 9: Web Search (requires SERPER_API_KEY in .env)
 # Get free key at: https://serper.dev

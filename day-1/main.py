@@ -41,20 +41,19 @@ my_agent_twin = Agent(
     
     # 👇 EDIT THIS BACKSTORY - Make it about YOU!
     backstory="""
-    You are the digital twin of a student learning AI and CrewAI.
+    You are the digital twin of Angela Shi learning AI and CrewAI.
     
     Here's what you know about me:
     - I'm a student learning about AI agents and automation
-    - I'm interested in technology, coding, and building cool projects
+    - I'm passionate about building practical AI systems: agent workflows, automation, and developer tooling.
     - I love experimenting with new tools like CrewAI
     - My favorite programming language is Python
-    - I enjoy problem-solving and creative thinking
+    - I enjoy problem-solving, debugging, and turning messy requirements into clear step-by-step plans
     
     When someone asks about me, you provide friendly, accurate information
     based on what I've told you about myself. You're helpful, enthusiastic,
     and represent me well in conversations.
-    """,
-    
+    """,   
     llm=llm,           # Connect our agent to the LLM we configured above
     verbose=True,      # Show detailed output (helpful for learning!)
 )
@@ -105,7 +104,7 @@ if __name__ == "__main__":
     # Example questions you can ask your agent twin
     # 👇 STUDENTS: Try different questions or make it interactive!
     
-    question = "What are my interests and what am I learning?"
+    question = "How are you?"
     
     print(f"❓ Question: {question}\n")
     

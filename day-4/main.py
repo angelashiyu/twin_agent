@@ -163,11 +163,11 @@ KNOWN_AGENTS: Dict[str, str] = {
 # ==============================================================================
 # 👇 EDIT THESE VALUES - This is your agent's public information
 
-MY_AGENT_USERNAME = "personal-agent-twin"  # 👈 CHANGE THIS: Your unique username
-MY_AGENT_NAME = "Personal Agent Twin"      # 👈 CHANGE THIS: Human-readable name
-MY_AGENT_DESCRIPTION = "AI agent with memory and tools for research and assistance"  # 👈 CHANGE THIS
-MY_AGENT_PROVIDER = "NANDA Student"        # 👈 CHANGE THIS: Your name
-MY_AGENT_PROVIDER_URL = "https://nanda.mit.edu"  # 👈 CHANGE THIS: Your website
+MY_AGENT_USERNAME = "angelas-twin-agent"  # 👈 CHANGE THIS: Your unique username
+MY_AGENT_NAME = "Angela's Twin Agent"      # 👈 CHANGE THIS: Human-readable name
+MY_AGENT_DESCRIPTION = "personal AI agent with memory and tools for research and assistance"  # 👈 CHANGE THIS
+MY_AGENT_PROVIDER = "Angela Shi"        # 👈 CHANGE THIS: Your name
+MY_AGENT_PROVIDER_URL = "https://angelas-twin-agent-project-production.up.railway.app"  # 👈 CHANGE THIS: Your website
 
 # Optional - usually don't need to change these
 MY_AGENT_ID = MY_AGENT_USERNAME  # Uses username as ID
